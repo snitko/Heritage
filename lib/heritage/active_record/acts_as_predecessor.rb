@@ -16,6 +16,8 @@ module Heritage
 
         belongs_to :heir, :polymorphic => true
 
+        # Using #try because we're not sure if a particular predecessor
+        # has heir. It may as well not have one.
         before_update :touch_heir, :unless => lambda { heir.try(:changed?) }
       end
 
@@ -31,7 +33,9 @@ module Heritage
       module InstanceMethods
         def touch_heir
           if self.changed?
-            heir.touch
+            # Using #try because we're not sure if a particular predecessor
+            # has heir. It may as well not have one.
+            heir.try(:touch)
           end
         end
       end
