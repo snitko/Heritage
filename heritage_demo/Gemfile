@@ -11,7 +11,4 @@ gem "heritage", :path => '../'
 group :test do
 	gem 'rspec-rails'
 	gem 'factory_girl_rails'
-	gem 'autotest'
-	gem 'autotest-fsevent'
-	gem 'autotest-growl'
 end
