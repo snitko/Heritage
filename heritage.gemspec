@@ -6,8 +6,8 @@ Gem::Specification.new do |s|
   s.name        = "heritage"
   s.version     = Heritage::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["Thomas Dippel"]
-  s.email       = ["thomasdi@benjamin.dk"]
+  s.authors     = ["Thomas Dippel", "Roman Snitko"]
+  s.email       = ["thomasdi@benjamin.dk", "roman.snitko@gmail.com"]
   s.homepage    = "http://rubygems.org/gems/heritage"
   s.summary     = %q{A gem for implementing multiple table inheritance in rails 3}
   s.description = %q{A gem for implementing multiple table inheritance in rails 3}

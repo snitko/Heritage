@@ -55,6 +55,24 @@ module Heritage
             end
           end
         end
+
+        # This piece deals with errors names
+        # and simply strips "predecessor." part from all the predecessor errors.
+        after_validation do
+          new_errors = {}
+          keys_to_delete = []
+          errors.each do |e|
+            if e =~ /^predecessor/
+              new_e = e.to_s.sub("predecessor.", '')
+              new_errors[new_e] = errors[e].first
+              keys_to_delete << e
+            end
+          end
+          keys_to_delete.each { |k|   errors.delete(k) }
+          new_errors.each     { |k,v| errors.add(k, v) }
+        end
+
+
       end
 
       module ClassMethods
